@@ -16,13 +16,16 @@ const Home = () => {
 
   useCountries(searchValue)
 
-  let displayCountries = countries.error
-    ? countries
-    : filter(countries, filters)
+  let displayCountries = []
+  let error = ''
 
-  // if (!countries.error) {
-  //   displayCountries = filter(countries, filters)
-  // }
+  if (countries.allCountries.length) {
+    displayCountries = filter(countries.allCountries, filters)
+  }
+
+  if (countries.error) {
+    error = countries.error
+  }
 
   return (
     <div className={styles.home}>
@@ -32,7 +35,7 @@ const Home = () => {
         img={headerIMG}
       />
       <Form />
-      <Pagination countries={displayCountries} />
+      <Pagination error={error} countries={displayCountries} />
     </div>
   )
 }

@@ -1,7 +1,6 @@
 import setTour from '../../../actions/setTour'
 import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import filterTours from '../../../helpers/filterTours'
 import styles from './index.module.css'
 import useActivities from '../../../hooks/useActivities'
 

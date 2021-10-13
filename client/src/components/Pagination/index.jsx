@@ -3,8 +3,7 @@ import styles from './index.module.css'
 import { useState, useEffect } from 'react'
 import Reset from '../Forms/FormHome/Reset.jsx'
 
-const Pagination = ({ countries }) => {
-  console.log('COUNTRIES PAGINATION', countries)
+const Pagination = ({ countries, error }) => {
   const [page, setPage] = useState(0)
 
   useEffect(() => {
@@ -26,7 +25,7 @@ const Pagination = ({ countries }) => {
     if (page > 0) setPage(page - 10)
   }
 
-  if (countries.length) {
+  if (countries.length && !error) {
     return (
       <div id='page' className={styles.page__container}>
         <>
@@ -43,10 +42,7 @@ const Pagination = ({ countries }) => {
         </>
       </div>
     )
-  } else if (
-    !countries.length &&
-    (!countries.error || countries.error !== 'Network Error')
-  ) {
+  } else if (error === 'Country not found') {
     return (
       <div id='page' className={styles.page__container}>
         <div className={styles.error}>

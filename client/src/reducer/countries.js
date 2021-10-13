@@ -1,10 +1,18 @@
-const countries = (state = [], action) => {
+const initialState = {
+  allCountries: [],
+  countryID: [],
+  error: '',
+}
+
+const countries = (state = initialState, action) => {
   switch (action.type) {
-    case 'SET_ALL_DATA':
-      console.log('REDUCER', action.payload)
-      return action.payload
-    case 'ERROR':
-      return { error: action.error }
+    case 'SET_COUNTRIES':
+      return { ...state, allCountries: action.payload }
+    case 'SET_COUNTRY':
+      return { ...state }
+    case 'SET_ERROR': {
+      return { ...state, ...action.payload }
+    }
     default:
       return state
   }

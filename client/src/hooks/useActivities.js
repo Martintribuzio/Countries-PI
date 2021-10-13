@@ -9,7 +9,6 @@ export const useActivities = () => {
       setTours(r)
     })
   }, [])
-  console.log('TOURS', tours)
   return tours
 }
 
