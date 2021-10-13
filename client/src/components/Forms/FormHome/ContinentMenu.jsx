@@ -1,26 +1,23 @@
-import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+// import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import setContinent from '../../../actions/setContinent.js'
 import styles from './index.module.css'
 
 const ContinentMenu = () => {
-  const [value, setValue] = useState('Filter by continent')
+  const value = useSelector(state => state.filters.continent)
+  console.log(value)
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(setContinent(value))
-  }, [dispatch, value])
-
   const handleChange = e => {
-    setValue(e.target.value)
+    dispatch(setContinent(e.target.value))
   }
 
   return (
     <>
       <form>
         <select className={styles.select} value={value} onChange={handleChange}>
-          <option disabled defaultValue hidden>
-            Filter by continent
+          <option hidden defaultValue>
+            Order by continent
           </option>
           <option value='All'>All</option>
           <option value='Europe'>Europe</option>

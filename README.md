@@ -10,8 +10,6 @@
 
 ## FALTANTES
 
-//Limpiar el form del home
-//Modularizar form de actividad
 //Manejar errores de service
 //cambiar las acciones
 //hacer repaso del proyecto

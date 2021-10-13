@@ -1,5 +1,4 @@
 import setTour from '../../../actions/setTour'
-import { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import styles from './index.module.css'
 import useActivities from '../../../hooks/useActivities'
@@ -8,15 +7,10 @@ const TourMenu = () => {
   const tourValue = useSelector(state => state.filters.Tour)
   const tours = useActivities().map(a => a.name)
 
-  const [value, setValue] = useState('Filter by Tourist Activity')
   const dispatch = useDispatch()
 
-  useEffect(() => {
-    dispatch(setTour(value))
-  }, [dispatch, value])
-
   const handleChange = e => {
-    setValue(e.target.value)
+    dispatch(setTour(e.target.value))
   }
 
   return (

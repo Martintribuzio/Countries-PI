@@ -7,7 +7,7 @@ const initialState = {
 const countries = (state = initialState, action) => {
   switch (action.type) {
     case 'SET_COUNTRIES':
-      return { ...state, allCountries: action.payload }
+      return { ...state, allCountries: action.payload, error: '' }
     case 'SET_COUNTRY':
       return { ...state }
     case 'SET_ERROR': {

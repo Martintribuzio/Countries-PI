@@ -1,5 +1,5 @@
 const filter = (countries, filters) => {
-  const { continent, orderBy, Tour } = filters
+  const { continent, orderByName, orderByPopulation, Tour } = filters
 
   if (continent !== 'All' && continent !== 'Filter by continent') {
     countries = countries.filter(c => c.region === continent)
@@ -11,9 +11,9 @@ const filter = (countries, filters) => {
     )
   }
 
-  if (orderBy.type === 'NAME') {
-    return countries.sort((a, b) =>
-      orderBy.order === 'ASC'
+  if (orderByName && orderByName !== 'Order by name') {
+    return [...countries].sort((a, b) =>
+      orderByName === 'ASC'
         ? a.name > b.name
           ? 1
           : -1
@@ -21,9 +21,9 @@ const filter = (countries, filters) => {
         ? 1
         : -1
     )
-  } else if (orderBy.type === 'POPULATION') {
-    return countries.sort((a, b) =>
-      orderBy.order === 'ASC'
+  } else if (orderByPopulation && orderByPopulation !== 'Order by population') {
+    return [...countries].sort((a, b) =>
+      orderByPopulation === 'ASC'
         ? a.population > b.population
           ? 1
           : -1

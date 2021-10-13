@@ -9,15 +9,10 @@ const Reset = () => {
   const dispatch = useDispatch()
 
   const handleClick = () => {
-    dispatch(setTour('All'))
+    dispatch(setTour('Filter by Tourist Activity'))
     dispatch(setSearch(''))
-    dispatch(setContinent('All'))
-    dispatch(
-      setOrder({
-        type: '',
-        order: '',
-      })
-    )
+    dispatch(setContinent('Filter by continent'))
+    dispatch(setOrder('NAME', 'Order by name'))
   }
   return (
     <button className={styles.btn} onClick={handleClick}>

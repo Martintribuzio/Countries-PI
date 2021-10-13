@@ -42,7 +42,7 @@ const Pagination = ({ countries, error }) => {
         </>
       </div>
     )
-  } else if (error === 'Country not found') {
+  } else if ((!countries.length && !error) || error === 'Country not found') {
     return (
       <div id='page' className={styles.page__container}>
         <div className={styles.error}>

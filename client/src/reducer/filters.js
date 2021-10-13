@@ -1,11 +1,9 @@
 const initialState = {
-  orderBy: {
-    type: '',
-    order: '',
-  },
+  orderByName: 'Order by name',
+  orderByPopulation: 'Order by population',
   searchValue: '',
-  continent: 'All',
-  Tour: 'All',
+  continent: 'Filter by continent',
+  Tour: 'Filter by Tourist Activity',
 }
 
 const filters = (state = initialState, action) => {
@@ -13,11 +11,16 @@ const filters = (state = initialState, action) => {
     case 'SET_SEARCH_VALUE':
       return { ...state, searchValue: action.payload }
     case 'SET_ORDER_BY_NAME':
-      return { ...state, orderBy: { type: 'NAME', order: action.payload } }
+      return {
+        ...state,
+        orderByName: action.payload,
+        orderByPopulation: 'Order by population',
+      }
     case 'SET_ORDER_BY_POPULATION':
       return {
         ...state,
-        orderBy: { type: 'POPULATION', order: action.payload },
+        orderByPopulation: action.payload,
+        orderByName: 'Order by name',
       }
     case 'SET_CONTINENT':
       return { ...state, continent: action.payload }

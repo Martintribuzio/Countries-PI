@@ -1,26 +1,26 @@
-import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import setOrder from '../../../actions/setOrder.js'
 import styles from './index.module.css'
 
 const OrderMenu = () => {
-  const [value, setValue] = useState({ name: '', order: '' })
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    const { name, order } = value
-    dispatch(setOrder(name, order))
-  }, [dispatch, value])
+  const name = useSelector(state => state.filters.orderByName)
+  const population = useSelector(state => state.filters.orderByPopulation)
 
   const handleChange = e => {
     const { name, value } = e.target
-    setValue({ name, order: value })
+    console.log(name, value)
+    dispatch(setOrder(name, value))
   }
 
   return (
     <>
       <form>
-        <select className={styles.select} name='NAME' onChange={handleChange}>
+        <select
+          value={name}
+          className={styles.select}
+          name='NAME'
+          onChange={handleChange}>
           <option hidden defaultValue>
             Order by name
           </option>
@@ -29,6 +29,7 @@ const OrderMenu = () => {
         </select>
 
         <select
+          value={population}
           name='POPULATION'
           className={styles.select}
           onChange={handleChange}>

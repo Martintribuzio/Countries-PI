@@ -27,7 +27,7 @@ const Form = () => {
   const [fields, setFields] = useState(initialFields)
   const [created, setCreated] = useState(false)
 
-  const allCountries = useSelector(state => state.countries)
+  const allCountries = useSelector(state => state.countries.allCountries)
   const countryOption = allCountries
     .map(c => ({ id: c.id, name: c.name }))
     .sort((a, b) => (a.name > b.name ? 1 : -1))
@@ -183,14 +183,6 @@ const Form = () => {
               ) : (
                 ''
               )}
-            </label>
-            <label>
-              Risk
-              <select name='risk' onChange={handleChange}>
-                <option value='Hard'>Hard</option>
-                <option value='Medium'>Medium</option>
-                <option value='Low'>Low</option>
-              </select>
             </label>
           </form>
           <div>
