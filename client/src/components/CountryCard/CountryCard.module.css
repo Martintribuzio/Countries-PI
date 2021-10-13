@@ -1,0 +1,48 @@
+.card {
+  width: 300px;
+  height: 200px;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 6px 4px 12px -4px rgba(0, 0, 0, 0.42);
+  background-color: #e7e6e6;
+  background-image: url('../../assets/map.png');
+  background-position: center;
+  background-size: cover;
+  border-bottom: 3px solid #4d6a5f;
+  border-radius: 5px;
+  position: relative;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 0px 1px 1px #5858587e;
+}
+
+.link:hover .tooltip {
+  visibility: visible;
+}
+
+.card__icon {
+  width: 50px;
+}
+
+.card__flag {
+  max-height: 70px;
+  box-shadow: 6px 4px 12px -4px rgba(0, 0, 0, 0.42);
+}
+
+.tooltip {
+  font-size: 10px;
+  visibility: hidden;
+  width: 120px;
+  background-color: #8f8566;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+}

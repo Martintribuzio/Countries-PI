@@ -1,0 +1,23 @@
+.detailContainer {
+  position: relative;
+  top: -50px;
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  align-self: center;
+  justify-self: center;
+}
+
+.table th {
+  background-color: rgb(255, 255, 255);
+  height: 40px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0px 10px;
+}
+
+.table td {
+  margin-left: 20px;
+  padding: 0px 10px;
+}

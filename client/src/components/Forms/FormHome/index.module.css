@@ -1,0 +1,69 @@
+.filters__container {
+  position: relative;
+  margin-top: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  padding: 0 50px;
+  border-radius: 2px;
+  height: auto;
+  min-height: 100px;
+  background-color: #4d6a5f;
+  box-shadow: 6px 4px 12px -4px rgba(0, 0, 0, 0.42);
+}
+
+.select,
+.btn {
+  color: white;
+  padding: 0 10px;
+  position: relative;
+  font-family: Montserrat;
+  color: rgb(92, 91, 91);
+  height: 40px;
+  outline: none;
+  border: none;
+  background-color: white;
+  margin-left: 10px;
+}
+
+.btn {
+  background-color: rgb(224, 103, 103);
+}
+.btn:hover {
+  cursor: pointer;
+}
+.select:hover {
+  cursor: pointer;
+}
+
+.select option {
+  width: 100px;
+}
+
+.input,
+.searchInput {
+  font-family: Montserrat;
+  padding-left: 20px;
+  height: 40px;
+  outline: none;
+  border: none;
+  position: relative;
+}
+.searchInput {
+  padding-left: 35px;
+  background-image: url(../../../assets/search.png);
+  background-position: 5px center;
+  background-size: 25px;
+  background-repeat: no-repeat;
+}
+
+.icon {
+  content: '';
+
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
+}

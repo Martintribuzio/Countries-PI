@@ -1,0 +1,42 @@
+.page__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 100px;
+}
+.countries__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.buttons button {
+  margin: 10px;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-bottom: 3px solid #4d6a5f;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.11);
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: none;
+}
+.buttons button:hover {
+  cursor: pointer;
+}
+.buttons button:active {
+  cursor: pointer;
+  box-shadow: -9px -7px 90px -83px rgba(0, 0, 0, 1) inset;
+}
+
+.error {
+  margin-top: 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}

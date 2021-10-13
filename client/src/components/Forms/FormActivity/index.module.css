@@ -1,0 +1,139 @@
+.form__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 90%;
+  height: auto;
+  margin: 50px 0;
+  padding: 20px 50px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  font-family: Montserrat, 'Helvetica Neue', Helvetica;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.error {
+  border: 2px solid red;
+}
+
+.form label {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 500;
+}
+
+.countriesForm {
+  width: 200px;
+}
+
+.countriesContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-weight: 500;
+  width: 100%;
+}
+
+.deleteCountry {
+  font-family: Montserrat;
+  background-color: white;
+  position: relative;
+  min-width: 60px;
+  font-weight: 500;
+  padding: 7px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  border: none;
+  border-radius: 4px;
+}
+
+.deleteCountry::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 800;
+  visibility: hidden;
+  content: 'DELETE';
+  width: 100%;
+  height: 100%;
+  background-color: rgb(238, 89, 89);
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  transition: all 0.1s;
+}
+
+.deleteCountry:hover {
+  cursor: pointer;
+  content: 'DELETE';
+}
+
+.deleteCountry:hover::before {
+  visibility: visible;
+}
+
+.deleteCountry::before:hover {
+  background-color: red;
+}
+
+.form input,
+select,
+button {
+  margin: 10px;
+}
+
+.form input,
+.form select {
+  width: 250px;
+}
+
+.createdContainer {
+  font-family: Montserrat;
+  width: 100%;
+  height: 100%;
+  align-self: center;
+  justify-self: center;
+  text-align: center;
+}
+
+.form input,
+.form select,
+.inputName {
+  font-family: Montserrat;
+  outline: none;
+  padding-left: 20px;
+  height: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  background-color: #ffffff;
+}
+
+.form .error {
+  border: 2px solid red;
+}
+
+.btn {
+  color: white;
+  font-family: Montserrat;
+  font-weight: 500;
+  width: 200px;
+  height: 40px;
+  background-color: #008dfb;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  cursor: pointer;
+}

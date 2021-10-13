@@ -1,0 +1,43 @@
+.header__container {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.header__container__inside {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.header__container__inside img {
+  margin-left: 50px;
+  display: inline-block;
+  width: 80px;
+  filter: drop-shadow(2px 5px 2px rgba(3, 3, 3, 0.5));
+}
+.header__container h1 {
+  font-family: 'Ephesis', cursive;
+  font-size: 6em;
+  font-weight: 500;
+}
+.header__container p {
+  font-size: 20px;
+  font-weight: 400;
+}
+.header__container h1,
+.header__container p {
+  text-shadow: -1px 1px 10px #00000077;
+  color: white;
+  text-align: center;
+}
+
+.title {
+  user-select: none;
+}
