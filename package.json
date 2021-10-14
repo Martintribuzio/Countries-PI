@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "nodemon": "^2.0.13",
     "redux-thunk": "^2.3.0"
   }
 }
