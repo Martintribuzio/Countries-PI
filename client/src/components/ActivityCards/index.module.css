@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.container h1 {
+  text-align: center;
+}
+
 .cards__container {
   display: flex;
   flex-wrap: wrap;
