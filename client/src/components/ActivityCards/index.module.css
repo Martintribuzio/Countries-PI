@@ -3,6 +3,7 @@
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .container h1 {
@@ -19,11 +20,11 @@
   max-width: 90%;
   height: max-content;
   margin-bottom: 50px;
-  padding: 50px 100px;
+  padding-top: 20px;
 }
 
 .cards__container h4 {
-  width: 400px;
+  width: 100%;
   text-align: center;
 }
 
