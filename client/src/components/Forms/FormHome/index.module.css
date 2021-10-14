@@ -26,6 +26,7 @@
   border: none;
   background-color: white;
   margin-left: 10px;
+  width: auto;
 }
 
 .btn {
@@ -67,4 +68,17 @@
   height: 30px;
   position: absolute;
   z-index: 1;
+}
+
+@media screen and (max-width: 700px) {
+  .filters__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+  }
+  .orderForm {
+    display: flex;
+    flex-direction: column;
+  }
 }
