@@ -21,7 +21,7 @@ const Details = ({ match }) => {
       <Header title={country.name} icon={country.img} img={world} />
       <CountryDetail {...country} />
       <ActivityCards
-        title='Tourist Activities'
+        title={`Tourist activities in ${country.name}`}
         activities={country ? country.TouristActivities : []}
       />
     </div>

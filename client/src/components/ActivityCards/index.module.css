@@ -18,6 +18,11 @@
   padding: 50px 100px;
 }
 
+.cards__container h4 {
+  width: 400px;
+  text-align: center;
+}
+
 .act__container {
   color: white;
   display: flex;

@@ -1,15 +1,12 @@
 import { useEffect, useState } from 'react'
-import getActivities from '../services/getActivities'
+import { useDispatch } from 'react-redux'
+import setActivities from '../actions/setActivities'
 
 export const useActivities = () => {
-  const [tours, setTours] = useState([])
-
+  const dispatch = useDispatch()
   useEffect(() => {
-    getActivities().then(r => {
-      setTours(r)
-    })
+    dispatch(setActivities())
   }, [])
-  return tours
 }
 
 export default useActivities

@@ -1,3 +1,4 @@
+'index.js'
 //HOOKS
 import { useCountries } from '../../hooks/useCountries'
 import { useSelector } from 'react-redux'

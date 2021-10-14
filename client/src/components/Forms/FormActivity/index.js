@@ -1,8 +1,9 @@
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import createActivities from '../../../services/createActivities.js'
 import styles from './index.module.css'
+import setActivities from '../../../actions/setActivities'
 
 const Form = () => {
   //INITIAL STATES
@@ -20,12 +21,12 @@ const Form = () => {
   }
 
   //STATES
-
+  const dispatch = useDispatch()
   const history = useHistory()
   const [error, setError] = useState(initialError)
   const [countries, setCountries] = useState([])
   const [fields, setFields] = useState(initialFields)
-  const [created, setCreated] = useState(false)
+  const [created, setCreated] = useState('')
 
   const allCountries = useSelector(state => state.countries.allCountries)
   const countryOption = allCountries
@@ -49,9 +50,13 @@ const Form = () => {
         countriesID: countries,
       }
       createActivities(data)
-      setCreated(true)
-      setFields(initialFields)
-      setCountries([])
+        .then(r => {
+          dispatch(setActivities())
+          setCreated('Created')
+          setFields(initialFields)
+          setCountries([])
+        })
+        .catch(e => setCreated('Error'))
     }
   }
 
@@ -83,17 +88,127 @@ const Form = () => {
     })
   }
 
-  const redirect = () => {
+  const redirect = e => {
     history.push('/home')
   }
 
-  return (
-    <div className={styles.form__container}>
-      {created ? (
+  if (!created) {
+    return (
+      <div className={styles.form__container}>
+        <form id='actform' className={styles.form} onSubmit={handleSubmit}>
+          <label>
+            Activity Name
+            <input
+              className={error.name ? styles.error : styles.inputName}
+              type='text'
+              name='name'
+              value={fields.name}
+              onChange={handleChange}
+              placeholder='Name of activity'
+            />
+            {error.name ? (
+              <small className={styles.errorName}>{error.name}</small>
+            ) : (
+              ''
+            )}
+          </label>
+
+          <label>
+            Activity difficult
+            <select
+              name='dificult'
+              value={fields.dificult}
+              onChange={handleChange}
+              required>
+              <option value='1'>Beginner</option>
+              <option value='2'>Novice</option>
+              <option value='3'>Intermediate</option>
+              <option value='4'>Expert</option>
+              <option value='5'>Professional</option>
+            </select>
+          </label>
+
+          <label>
+            Duration time (hrs)
+            <select
+              name='duration'
+              value={fields.duration}
+              onChange={handleChange}>
+              <option value='1'>1hr approx.</option>
+              <option value='2'>2hrs approx.</option>
+              <option value='3'>3hrs approx.</option>
+              <option value='4'>4hrs approx.</option>
+              <option value='5'>5hrs approx.</option>
+            </select>
+          </label>
+
+          <label>
+            Season
+            <select name='season' value={fields.season} onChange={handleChange}>
+              <option value='Winter'>Winter</option>
+              <option value='Summer'>Summer</option>
+              <option value='Fall'>Fall</option>
+              <option value='Spring'>Spring</option>
+            </select>
+          </label>
+          <label>
+            Countries
+            <select
+              className={error.countries ? styles.error : ''}
+              name='countries'
+              onChange={handleCountries}
+              required>
+              <option defaultValue hidden>
+                Choose country...
+              </option>
+              {countryOption.map(c => (
+                <option key={c.id} value={c.id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+            {error.countries ? (
+              <small className={styles.errorName}>{error.countries}</small>
+            ) : (
+              ''
+            )}
+          </label>
+        </form>
+        <div>
+          <button
+            className={styles.btn}
+            type='submit'
+            form='actform'
+            value='Submit'>
+            CREATE ACTIVITY
+          </button>
+        </div>
+        <div className={styles.countriesContainer}>
+          {countries.length
+            ? 'Selected Countries:'
+            : 'There are no selected countries'}
+          {countries.map(c => (
+            <button
+              key={c.id}
+              className={styles.deleteCountry}
+              value={c.id}
+              onClick={deleteCountry}>
+              {c.name}
+            </button>
+          ))}
+        </div>
+      </div>
+    )
+  } else if (created === 'Created') {
+    return (
+      <div className={styles.form__container}>
         <div className={styles.createdContainer}>
           <h2>Activity created</h2>
           <div>
-            <button className={styles.btn} onClick={() => setCreated(false)}>
+            <button
+              name='createNew'
+              className={styles.btn}
+              onClick={() => setCreated('')}>
               Create another activity
             </button>
             <button className={styles.btn} onClick={redirect}>
@@ -101,117 +216,24 @@ const Form = () => {
             </button>
           </div>
         </div>
-      ) : (
-        <>
-          <form id='actform' className={styles.form} onSubmit={handleSubmit}>
-            <label>
-              Activity Name
-              <input
-                className={error.name ? styles.error : styles.inputName}
-                type='text'
-                name='name'
-                value={fields.name}
-                onChange={handleChange}
-                placeholder='Name of activity'
-              />
-              {error.name ? (
-                <small className={styles.errorName}>{error.name}</small>
-              ) : (
-                ''
-              )}
-            </label>
-
-            <label>
-              Activity difficult
-              <select
-                name='dificult'
-                value={fields.dificult}
-                onChange={handleChange}
-                required>
-                <option value='1'>Beginner</option>
-                <option value='2'>Novice</option>
-                <option value='3'>Intermediate</option>
-                <option value='4'>Expert</option>
-                <option value='5'>Professional</option>
-              </select>
-            </label>
-
-            <label>
-              Duration time (hrs)
-              <select
-                name='duration'
-                value={fields.duration}
-                onChange={handleChange}>
-                <option value='1'>1hr approx.</option>
-                <option value='2'>2hrs approx.</option>
-                <option value='3'>3hrs approx.</option>
-                <option value='4'>4hrs approx.</option>
-                <option value='5'>5hrs approx.</option>
-              </select>
-            </label>
-
-            <label>
-              Season
-              <select
-                name='season'
-                value={fields.season}
-                onChange={handleChange}>
-                <option value='Winter'>Winter</option>
-                <option value='Summer'>Summer</option>
-                <option value='Fall'>Fall</option>
-                <option value='Spring'>Spring</option>
-              </select>
-            </label>
-            <label>
-              Countries
-              <select
-                className={error.countries ? styles.error : ''}
-                name='countries'
-                onChange={handleCountries}
-                required>
-                <option defaultValue hidden>
-                  Choose country...
-                </option>
-                {countryOption.map(c => (
-                  <option key={c.id} value={c.id}>
-                    {c.name}
-                  </option>
-                ))}
-              </select>
-              {error.countries ? (
-                <small className={styles.errorName}>{error.countries}</small>
-              ) : (
-                ''
-              )}
-            </label>
-          </form>
+      </div>
+    )
+  } else {
+    return (
+      <div className={styles.form__container}>
+        <div className={styles.createdContainer}>
+          <h2>An error occurred while creating the activity</h2>
           <div>
-            <button
-              className={styles.btn}
-              type='submit'
-              form='actform'
-              value='Submit'>
-              CREATE ACTIVITY
+            <button className={styles.btn} onClick={() => setCreated('')}>
+              Try Again
+            </button>
+            <button className={styles.btn} onClick={redirect}>
+              Go to HomePage
             </button>
           </div>
-          <div className={styles.countriesContainer}>
-            {countries.length
-              ? 'Selected Countries:'
-              : 'There are no selected countries'}
-            {countries.map(c => (
-              <button
-                key={c.id}
-                className={styles.deleteCountry}
-                value={c.id}
-                onClick={deleteCountry}>
-                {c.name}
-              </button>
-            ))}
-          </div>
-        </>
-      )}
-    </div>
-  )
+        </div>
+      </div>
+    )
+  }
 }
-
 export default Form

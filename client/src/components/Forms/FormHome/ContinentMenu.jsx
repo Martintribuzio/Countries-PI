@@ -5,7 +5,6 @@ import styles from './index.module.css'
 
 const ContinentMenu = () => {
   const value = useSelector(state => state.filters.continent)
-  console.log(value)
   const dispatch = useDispatch()
 
   const handleChange = e => {

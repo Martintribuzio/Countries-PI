@@ -17,8 +17,19 @@ module.exports = sequelize => {
         allowNull: false,
       },
       dificult: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.ENUM('1', '2', '3', '4', '5'),
         allowNull: false,
+        get() {
+          let data = this.getDataValue('dificult')
+          const values = {
+            1: 'begginer',
+            2: 'novice',
+            3: 'intermediate',
+            4: 'expert',
+            5: 'professional',
+          }
+          return values[data]
+        },
       },
       duration: {
         type: DataTypes.INTEGER,

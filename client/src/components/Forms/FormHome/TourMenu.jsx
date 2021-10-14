@@ -4,8 +4,9 @@ import styles from './index.module.css'
 import useActivities from '../../../hooks/useActivities'
 
 const TourMenu = () => {
+  useActivities()
   const tourValue = useSelector(state => state.filters.Tour)
-  const tours = useActivities().map(a => a.name)
+  const tours = useSelector(state => state.activities).map(el => el.name)
 
   const dispatch = useDispatch()
 

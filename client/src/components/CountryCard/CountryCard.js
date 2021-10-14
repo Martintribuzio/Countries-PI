@@ -22,7 +22,7 @@ const CountryCard = ({ id, name, region, img, population }) => {
         </figure>
         {loaded ? (
           <div className={styles.card__data}>
-            <h3>{name}</h3>
+            <h3>{`${name}`}</h3>
             <h4>{region}</h4>
           </div>
         ) : (

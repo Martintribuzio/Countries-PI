@@ -23,7 +23,16 @@ const setActivity = async (req, res) => {
       const country = await Country.findByPk(id)
       if (!country) throw new Error(`CountryID: ${id || 'id'} are invalid`)
 
-      await country.addTouristActivity(activity.id)
+      let activities = await country.getTouristActivities()
+      activities = activities.map(el => el.toJSON())
+
+      if (
+        !activities.find(a =>
+          a.name.toLowerCase().includes(activity.name.toLowerCase())
+        )
+      ) {
+        await country.addTouristActivity(activity.id)
+      }
     }
 
     res.status(201).json(activity)

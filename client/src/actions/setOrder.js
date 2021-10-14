@@ -12,10 +12,7 @@ const setOrder = (type, payload) => {
       }
     }
     default:
-      return {
-        type: 'SET_ORDER_BY_NAME',
-        payload: payload,
-      }
+      return
   }
 }
 

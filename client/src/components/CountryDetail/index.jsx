@@ -11,6 +11,7 @@ const CountryDetail = props => {
             <th>Region</th>
             <th>Area</th>
             <th>Population</th>
+            <th>Country Code</th>
           </tr>
           <tr>
             <td>{props.capital}</td>
@@ -20,6 +21,7 @@ const CountryDetail = props => {
             <td>{`${props.population
               ?.toString()
               .replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1.')} M`}</td>
+            <td>{props.id}</td>
           </tr>
         </tbody>
       </table>
