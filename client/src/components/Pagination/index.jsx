@@ -46,8 +46,8 @@ const Pagination = ({ countries, error }) => {
     return (
       <div id='page' className={styles.page__container}>
         <div className={styles.error}>
-          <h2>There are no countries with those filters</h2>
-          <h2>Do you want to reset the filters?</h2>
+          <h2>Oops... there are no countries with those filters.</h2>
+          <h2>Do you want to reset them?</h2>
           <Reset />
         </div>
       </div>

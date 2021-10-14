@@ -33,6 +33,7 @@
 }
 .btn:hover {
   cursor: pointer;
+  background-color: rgb(240, 83, 83);
 }
 .select:hover {
   cursor: pointer;
