@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js -L"
+    "start": "nodemon server.js -L",
+    "test": "jest --verbose --detectOpenHandles"
   },
   "author": "Martin Tribuzio",
   "license": "ISC",
