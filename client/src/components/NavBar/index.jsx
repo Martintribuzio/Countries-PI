@@ -9,9 +9,12 @@ import { Link } from 'react-router-dom'
 const NavBar = () => {
   return (
     <div className={styles.NavBar__container}>
-      <figure className={styles.logo}>
-        <img src={icon} alt='icon' />
-      </figure>
+      <Link to='/'>
+        <figure className={styles.logo}>
+          <img src={icon} alt='icon' />
+        </figure>
+      </Link>
+
       <nav>
         <ul>
           <Link className={styles.item} to='/home'>

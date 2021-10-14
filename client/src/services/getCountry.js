@@ -1,9 +1,13 @@
 import axios from 'axios'
-const base_url = 'http://localhost:3001/countries/'
 
 const getCountry = async id => {
-  let result = await axios.get(base_url + id)
-  return result.data
+  try {
+    let result = await axios.get('/countries/' + id)
+    return result.data
+  } catch (error) {
+    console.log(error.message)
+    return error.message
+  }
 }
 
 export default getCountry

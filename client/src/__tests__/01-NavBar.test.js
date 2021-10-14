@@ -12,13 +12,16 @@ describe('NavBar', () => {
   beforeEach(() => {
     wrapper = shallow(<NavBar />)
   })
-  test('Navbar debe tener dos Links', () => {
-    expect(wrapper.find(Link)).toHaveLength(2)
+  test('Debe tener tres Links', () => {
+    expect(wrapper.find(Link)).toHaveLength(3)
   })
-  test('Navbar debe tener un link que cambie la ruta hacia /home', () => {
-    expect(wrapper.find(Link).at(0).prop('to')).toEqual('/home')
+  test('Debe tener un link que cambie la ruta hacia /', () => {
+    expect(wrapper.find(Link).at(0).prop('to')).toEqual('/')
   })
-  test('Navbar debe tener un link que cambie la ruta hacia /home/newTour', () => {
-    expect(wrapper.find(Link).at(1).prop('to')).toEqual('/home/new_tour')
+  test('Debe tener un link que cambie la ruta hacia /home', () => {
+    expect(wrapper.find(Link).at(1).prop('to')).toEqual('/home')
+  })
+  test('Debe tener un link que cambie la ruta hacia /home/newTour', () => {
+    expect(wrapper.find(Link).at(2).prop('to')).toEqual('/home/new_tour')
   })
 })
