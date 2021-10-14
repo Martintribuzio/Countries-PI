@@ -1,4 +1,5 @@
 .pageContainer {
   display: flex;
   flex-direction: column;
+  background-color: rgb(235, 235, 235);
 }

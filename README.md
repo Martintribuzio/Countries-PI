@@ -8,12 +8,6 @@
   <img height="200" src="./countries.png" />
 </p>
 
-## FALTANTES
-
-//Manejar errores de service
-//cambiar las acciones
-//hacer repaso del proyecto
-
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.

@@ -24,7 +24,7 @@ const ActivityCard = ({ activity }) => {
       <p>{activity.season}</p>
       <h2>{activity.name}</h2>
       <div>
-        <h4>difficult: {activity.dificult} - </h4>
+        <h4>difficult: {activity.dificult}</h4>
         <h4>duration: {activity.duration}</h4>
       </div>
     </div>

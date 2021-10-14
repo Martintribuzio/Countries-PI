@@ -9,7 +9,7 @@
   margin: 50px 0;
   padding: 20px 50px;
   border-radius: 5px;
-  background-color: #ffffff;
+  background-color: #f9f5f1;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
@@ -130,11 +130,12 @@ button {
   font-weight: 500;
   width: 200px;
   height: 40px;
-  background-color: #008dfb;
+  background-color: #70b8ff;
   border: none;
   border-radius: 5px;
 }
 
 .btn:hover {
   cursor: pointer;
+  background-color: #47a3ff;
 }

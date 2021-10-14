@@ -86,6 +86,6 @@
 }
 
 .act__container h4 {
-  display: inline;
+  text-align: left;
   font-weight: 400;
 }
