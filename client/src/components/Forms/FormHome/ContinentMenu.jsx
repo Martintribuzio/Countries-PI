@@ -13,7 +13,7 @@ const ContinentMenu = () => {
 
   return (
     <>
-      <form>
+      <form autocomplete='off'>
         <select className={styles.select} value={value} onChange={handleChange}>
           <option hidden defaultValue>
             Order by continent

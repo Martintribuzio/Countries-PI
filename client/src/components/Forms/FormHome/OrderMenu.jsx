@@ -14,7 +14,7 @@ const OrderMenu = () => {
 
   return (
     <>
-      <form className={styles.orderForm}>
+      <form className={styles.orderForm} autocomplete='off'>
         <select
           value={name}
           className={styles.select}

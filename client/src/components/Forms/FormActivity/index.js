@@ -95,7 +95,11 @@ const Form = () => {
   if (!created) {
     return (
       <div className={styles.form__container}>
-        <form id='actform' className={styles.form} onSubmit={handleSubmit}>
+        <form
+          id='actform'
+          className={styles.form}
+          onSubmit={handleSubmit}
+          autocomplete='off'>
           <label>
             Activity Name
             <input

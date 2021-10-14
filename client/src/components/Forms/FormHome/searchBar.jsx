@@ -17,7 +17,10 @@ const SearchBar = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={styles.searchForm}>
+      <form
+        onSubmit={handleSubmit}
+        className={styles.searchForm}
+        autocomplete='off'>
         <i className={styles.icon}></i>
         <input
           className={styles.searchInput}

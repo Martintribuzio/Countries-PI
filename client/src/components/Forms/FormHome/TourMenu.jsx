@@ -16,7 +16,7 @@ const TourMenu = () => {
 
   return (
     <>
-      <form>
+      <form autocomplete='off'>
         <select
           className={styles.select}
           value={tourValue}
