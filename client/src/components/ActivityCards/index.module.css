@@ -47,6 +47,10 @@
   filter: grayscale(30%);
 }
 
+.act__container:last-child {
+  margin-bottom: 25px;
+}
+
 .act__container::before {
   content: '';
   position: absolute;
