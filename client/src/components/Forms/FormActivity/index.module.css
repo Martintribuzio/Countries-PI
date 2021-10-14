@@ -45,6 +45,10 @@
   width: 100%;
 }
 
+.countriesContainer p {
+  text-align: center;
+}
+
 .deleteCountry {
   font-family: Montserrat;
   background-color: white;

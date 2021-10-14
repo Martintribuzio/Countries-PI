@@ -188,9 +188,12 @@ const Form = () => {
           </button>
         </div>
         <div className={styles.countriesContainer}>
-          {countries.length
-            ? 'Selected Countries:'
-            : 'There are no selected countries'}
+          <p>
+            {countries.length
+              ? 'Selected Countries:'
+              : 'There are no selected countries'}
+          </p>
+
           {countries.map(c => (
             <button
               key={c.id}

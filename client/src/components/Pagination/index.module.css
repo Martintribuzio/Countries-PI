@@ -4,12 +4,14 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 100px;
+  width: 100%;
 }
 .countries__container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   align-items: center;
+  width: 100%;
 }
 
 .buttons button {
