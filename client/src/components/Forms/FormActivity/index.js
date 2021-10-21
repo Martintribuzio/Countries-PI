@@ -99,7 +99,7 @@ const Form = () => {
           id='actform'
           className={styles.form}
           onSubmit={handleSubmit}
-          autocomplete='off'>
+          autoComplete='off'>
           <label>
             Activity Name
             <input
